@@ -195,7 +195,7 @@ img {
     margin-bottom: 2rem;
 }
 
-@media (min-width: 769px){
+@media (min-width: 768px){
     .boton {
         display: inline-block;
     }
@@ -209,6 +209,7 @@ img {
     background-color: var(--secundario);
 }
 
+/* aside styles */
 .paquetes{
     list-style: none;
 }
@@ -230,6 +231,7 @@ img {
 .paquetes--titulo__info{
     font-weight: var(--fuenteLigera);
 }
+/* fin aside */
 
 /*fin Contenido principal*/
 
