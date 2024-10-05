@@ -1,95 +1,59 @@
-// Seleccionar un elemento
-const elemento = document.querySelector('.header__texto h2');
-console.log(elemento);
+const contenidoMain = document.querySelector('.formulario');
 
-// Modificar el elemento desde JS.
-elemento.textContent = 'Nuevo elemento desde JS';
+let nombre = '';
+let correo = '';
+let mensaje = '';
 
+const nombreForm = document.querySelector('#nombre');
+const correoForm = document.querySelector('#email');
+const mensajeForm = document.querySelector('#mensaje');
 
-//seleccionar multiples elementos
-const enlaces = document.querySelectorAll('.navegacion a');
-console.log(enlaces);
-
-enlaces[0].textContent = 'Nuevo texto';
-
-//modificamos el enlace en la posición 0.
-
-
-//getElementByID
-const texto = document.getElementById('texto_head');
-console.log(texto.textContent);
-
-
-//generar un enalce 
-const nuevoElemento = document.createElement('H3');
-nuevoElemento.textContent = 'Contacta con el Govea';
-nuevoElemento.classList.add('centrar-texto');
-
-
-//Agregarlo al documento
-const contenidoMain = document.querySelector('#principal');
-contenidoMain.appendChild(nuevoElemento);
-
-console.log(nuevoElemento);
-
-
-let nombreForm = '';
-
-//eventos
-//asociar eventos a elementos del formulario.
-const botonEnviar = document.querySelector('.boton--primario');
-console.log(botonEnviar);
-botonEnviar.addEventListener('click', function () {
-    console.log('Enviadno datos');
+nombreForm.addEventListener('input',function(e){
+    nombre = e.target.value;
 });
-// const botonEnviar = document.querySelector('.boton--primario');
-// console.log(botonEnviar);
-// botonEnviar.addEventListener('click', function () {
-//     if(nombreForm === ''){
-//         alert('El nombre no puede estar vació');
-//     }
-//     else
-//     {
-//         alert('enviadno datos');
-//     }
-// });
 
-// const botonEnviar = document.querySelector('.boton--primario');
-// console.log(botonEnviar);
-// botonEnviar.addEventListener('click', function (evento) {
-//     console.log(evento);
-//     console.log('Enviando el formulario');
-//     evento.preventDefault();
-// });
+correoForm.addEventListener('input',function(e){
+    correo = e.target.value;
+});
 
-//eventos del textInputs
+mensajeForm.addEventListener('input',function(e){
+    mensaje = e.target.value;
+});
 
-// const nombre = document.querySelector('#nombre');
-// nombre.addEventListener('input', function() {
-//     console.log('Escribiendo');
-//     console.log(evento.target.value);
-// });
+const botonEnviar = document.querySelector('#btnEnviar');
 
+botonEnviar.addEventListener('click', function (e) {
+    e.preventDefault();
+    if(nombre === ''){
+        agregarError('nombre');
+    }
+    if(correo === ''){
+        agregarError('e-mail');
+    }
+    if(mensaje === ''){
+        agregarError('menaje');
+    }
+    else{
+        formularioOk('Los datos han sido enviados correctamente.')
+    }
+});
 
-const nombre = document.querySelector('#nombre');
-nombre.addEventListener('input', leerTexto);
-
-function leerTexto(evento) {
-    //console.log(evento.target.value);
-    nombreForm = evento.target.value;
-    console.log(nombreForm);
+function agregarError(campo){
+    const mensajeError = document.createElement('P');
+    mensajeError.textContent =`El campo ${campo} es obligatorio`;
+    mensajeError.classList.add('mensaje__error','centrar-texto');
+    contenidoMain.appendChild(mensajeError);
+    setTimeout(() => {
+        mensajeError.remove();
+    },5000);
 }
 
-
-// const nombre = document.querySelector('#nombre');
-// nombre.addEventListener('change', function() {
-//     console.log('Escribiendo');
-// });
-
-
-
-// const nombre = document.querySelector('#nombre');
-// nombre.addEventListener('change', function() {
-//     console.log('Escribiendo');
-// });
-
+function formularioOk(msg){
+    const mensaje = document.createElement('P');
+    mensaje.textContent = msg;
+    mensaje.classList.add('mensaje__ok','centrar-texto');
+    contenidoMain.appendChild(mensaje);
+    setTimeout(() => {
+        mensaje.remove();
+    },5000);
+}

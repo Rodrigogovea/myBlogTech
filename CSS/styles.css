@@ -311,7 +311,7 @@ img {
 
 .contacto--fondo{
     background-image: url(../IMG/book.jpg);
-    height: 40rem;
+    height: 25rem;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -344,4 +344,20 @@ img {
 
 .campo__field--textarea{
     height: 20rem;
+}
+
+.mensaje__error{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: .8rem;
+    font-size: 1.8rem;
+    font-weight: var(--fuenteIntermedia);
+}
+
+.mensaje__ok{
+    background-color: var(--obscuroTransparencia);
+    color: var(--blanco);
+    padding: .8rem;
+    font-size: 1.8rem;
+    font-weight: var(--fuentePesada);
 }
