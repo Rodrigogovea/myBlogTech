@@ -35,6 +35,10 @@ botonEnviar.addEventListener('click', function (e) {
     }
     else{
         formularioOk('Los datos han sido enviados correctamente.')
+        document.querySelector('.formulario').reset();
+        nombre = '';
+        correo = '';
+        mensaje = '';
     }
 });
 
