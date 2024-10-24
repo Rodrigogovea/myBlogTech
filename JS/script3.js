@@ -28,4 +28,12 @@ for(var i = 0; i< data.length; i++)
     console.log(`Nombre: ${data[i].nombre} ${data[i].apellido}, edad: ${data[i].edad}`);
 }
 
-data.map(person => console.log(person.nombre));
+
+
+
+data.map(function(person)
+{
+    console.log(person);
+});
+
+// data.map(person => console.log(person));
